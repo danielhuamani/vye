@@ -1,0 +1,192 @@
+{
+  "api": {
+    "itemsapi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "items"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "auth": {
+    "amplifyproducts06ca3709": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    }
+  },
+  "function": {
+    "amplifyproducts29de22ed": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "dynamo342fca3c"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "amplifyproductse48558b7": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "items": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "dynamoproducts"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "itemsapi": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "dynamoproducts"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "hosting": {
+    "S3AndCloudFront": {
+      "providerPlugin": "awscloudformation",
+      "service": "S3AndCloudFront"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_amplifyproducts29de22ed_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "amplifyproducts29de22ed"
+        }
+      ]
+    },
+    "AMPLIFY_function_amplifyproducts29de22ed_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "amplifyproducts29de22ed"
+        }
+      ]
+    },
+    "AMPLIFY_function_amplifyproductse48558b7_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "amplifyproductse48558b7"
+        }
+      ]
+    },
+    "AMPLIFY_function_amplifyproductse48558b7_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "amplifyproductse48558b7"
+        }
+      ]
+    },
+    "AMPLIFY_function_items_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "items"
+        }
+      ]
+    },
+    "AMPLIFY_function_items_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "items"
+        }
+      ]
+    },
+    "AMPLIFY_function_itemsapi_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "itemsapi"
+        }
+      ]
+    },
+    "AMPLIFY_function_itemsapi_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "itemsapi"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "dynamo342fca3c": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
+    "dynamoproducts": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    }
+  }
+}

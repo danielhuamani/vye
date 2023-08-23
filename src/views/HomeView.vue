@@ -1,18 +1,28 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <div class="mt-4">
+      <b-button href="/dashboard/create">Agregar</b-button>
+      <b-table striped hover :items="items"></b-table>
+    </div>
   </div>
 </template>
-
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import { API } from 'aws-amplify'
 export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
+  created () {
+    API.get('itemsapi', '/items').then(result => {
+      console.log(result)
+    })
+  },
+  data () {
+    return {
+      items: [
+        { id: 40, name: 'Dickerson', price: 'Macdonald', created_at: '' },
+        { id: 21, name: 'Larsen', price: 'Shaw', created_at: '' },
+        { id: 89, name: 'Geneva', price: 'Wilson', created_at: '' },
+        { id: 38, name: 'Jami', price: 'Carney', created_at: '' }
+      ]
+    }
   }
 }
 </script>

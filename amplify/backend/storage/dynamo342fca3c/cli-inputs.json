@@ -1,0 +1,25 @@
+{
+  "resourceName": "dynamo342fca3c",
+  "tableName": "dynamo342fca3c",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "string"
+  },
+  "gsi": [
+    {
+      "name": "name",
+      "partitionKey": {
+        "fieldName": "id",
+        "fieldType": "string"
+      }
+    },
+    {
+      "name": "name",
+      "partitionKey": {
+        "fieldName": "id",
+        "fieldType": "string"
+      }
+    }
+  ],
+  "triggerFunctions": []
+}
